@@ -1,7 +1,7 @@
 {
   "name": "backend2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "aws-sdk": "^2.541.0",
     "bcrypt": "^3.0.6",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "build": "node node_modules/react-scripts/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eject": "node node_modules/react-scripts/scripts/eject.js"
