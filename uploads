@@ -1,0 +1,47 @@
+const AWS = require("aws-sdk");
+
+// AWS.config.loadFromPath("./config.json");
+const responseJSON = function(res, ret) {
+  if (typeof ret === "undefined") {
+    res.json({
+      code: "-200",
+      msg: "The operation failure"
+    });
+  } else {
+    res.json(ret);
+  }
+};
+
+s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+exports.uploadImage = function(req, res) {
+  const key = Math.random()
+    .toString(36)
+    .substr(2);
+  console.log("key===", key);
+  console.log("body===", req.body.data);
+  const buf = new Buffer.from(
+    req.body.data.replace(/^data:image\/\w+;base64,/, ""),
+    "base64"
+  );
+  const bucket = `handycafe/${req.body.folder}`;
+  //   const key = req.body.id.toString();
+  console.log("bucket===", bucket);
+  const data = {
+    Key: key,
+    Body: buf,
+    ContentEncoding: "base64",
+    ContentType: "image/jpeg",
+    Bucket: bucket
+  };
+
+  s3.upload(data, function(err, result) {
+    if (err) {
+      result = {
+        status: 201,
+        msg: err
+      };
+    }
+    responseJSON(res, result);
+  });
+};

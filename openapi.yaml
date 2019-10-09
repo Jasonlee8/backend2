@@ -1,0 +1,331 @@
+openapi: 3.0.0
+info: 
+  title: Cafe
+  description: Booking Coffee System.
+paths: 
+  /menu: 
+    get:
+      summary: display a menu
+      tags:
+        - Menu
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+   
+  /order:
+    post:
+    get:
+    # put:
+      summary: create an order and update status
+      tags:
+        - Order
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId: 
+                    type: number
+                  email:
+                    type: string
+                  itemTitle:
+                    type: string
+                  itemQuantity:
+                    type: number
+                  totalPrice: 
+                    type: number
+                  status:
+                    type: string
+                  date: 
+                    type: date 
+
+  /menuquantity:
+    put:
+      summary: update status
+      tags:
+        - Menu
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  itemTitle:
+                    type: String
+                  itemQuantity: 
+                    type: Number
+
+
+  /orderid: 
+    get:
+      summary: get largest orderId
+      tags:
+        - OrderId
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /cart:
+    post:
+      summary: create user's cart
+      tags:
+        - Cart
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email: 
+                    type: string
+
+  /cart: 
+    get:
+      summary: display a cart
+      tags:
+        - Cart
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+                
+  /register:
+    post:
+      summary: create an User
+      tags:
+        - Register
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email: 
+                    type: string
+                  password:
+                    type: string 
+
+  /login:
+    post:
+      summary: User login
+      tags:
+        - Login
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email: 
+                    type: string
+                  password:
+                    type: string 
+
+  /profile: 
+    get:
+      summary: display user's profile
+      tags:
+        - Profile
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+
+#Admin Site 
+  /admin/register:
+    post:
+      summary: create an Admin
+      tags:
+        - Admin Register
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email: 
+                    type: string
+                  password:
+                    type: string 
+
+  /admin/products: 
+    get:
+      summary: display products list
+      tags:
+        - Product Management
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /admin/users: 
+    get:
+      summary: display user list
+      tags:
+        - User Management
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+
+
+
+                      # /menuInsert:
+  #   post:
+  #     summary: insert a menu
+  #     tags:
+  #       - Menu
+  #     responses:
+  #       "201": 
+  #         content: 
+  #             applicatuon/json:
+  #               schema:
+  #                 type: object
+  #     requestBody:
+  #         content:
+  #             application/json:
+  #               schema:
+  #                 type: object
+  #                 properties:
+  #                   id: 
+  #                     type: number
+  #                   title:
+  #                     type: string
+  #                   price:
+  #                     type: number
+  #                   alt:
+  #                     type: string
+  #                   description:
+  #                     type: string
+
+
+
+  

@@ -1,0 +1,55 @@
+
+// router.put("/order/:id", async(req, res, next) => {
+//     try {
+//         const {id} = req.params;
+//         const {body} = req.setTimeout(60000);
+//         const order = new Order.update(
+//             {_id: new mongoose.Types.ObjectId(id)},
+//             {status: "Item is ready"},
+//             {upsert: true}
+//         )
+//         await order.save();
+//         res.statusCode = 201;
+//         res.send({
+//             succeed: true,
+//         });
+//     } catch (e) {
+//         next();
+//     }
+//     //req.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+// })
+
+
+        Order(body).updateOne(
+            {email: "bill@gmail.com"},
+            {status: "Item is ready"},
+        ).setTimeout(10000);
+
+    // const {id} = req.params;
+    // const {body} = req;
+    // const order = new Order(body);
+    // const dbRes = await order.save();
+    // Order(body).updateOne(
+    //     {"email": "bill@gmail.com"},
+    //     // {_id: new mongoose.Types.ObjectId(id)},
+    //     {"status": "Item is ready"},
+    //     {upsert: true}
+    // ).setTimeout(30000);
+
+db.admins.insertOne({first_name: "Jason", last_name: "Li", email: "Jason@gmail.com", password: "12345"})
+
+db.menus.findOne({ $and: [
+    {title: "Mocha"}, {quantity: {"$gte": 300}} 
+    ]})
+
+    db.menus.updateOne(
+    {"title": "Long Black"},
+    {$inc: {"quantity" : - 4 }}
+    ) 
+
+
+        db.menus.updateOne(
+    {"title": "Short Macchiato"},
+    {$set: {"quantity": 20}}
+    )   
+
