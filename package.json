@@ -1,7 +1,7 @@
 {
   "name": "backend2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "aws-sdk": "^2.541.0",
     "bcrypt": "^3.0.6",
@@ -9,7 +9,6 @@
     "concurrently": "^4.1.0",
     "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.2.7",
@@ -24,7 +23,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "build": "node node_modules/react-scripts/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eject": "node node_modules/react-scripts/scripts/eject.js"
