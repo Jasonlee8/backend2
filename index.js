@@ -9,7 +9,8 @@ const swaggerUI = require('swagger-ui-express');
 const menuRouter = require('./routers/Menus');
 const orderRouter = require('./routers/Orders');
 const userRouter = require('./routers/Users');
-const adminRouter = require('./routers/Admins')
+const adminRouter = require('./routers/Admins');
+require('dotenv').config()
 
 const app = express();
 // const issue2options = {
@@ -32,10 +33,12 @@ app.use(cors());
 
 
 mongoose.connect(
-    `${process.env.MONGO_DB_CLOUD_UNAME_PWD}`, 
+    `${process.env.MONGO_DB_CLOUD_UNAME_PWD}`,
     { useNewUrlParser: true, useUnifiedTopology: true });
+    //'mongodb://localhost:27017/test',  { useNewUrlParser: true, useUnifiedTopology: true });
     
-    // 'mongodb://localhost:27017/test',  { useNewUrlParser: true, useUnifiedTopology: true });
+    
+    
 
 const openapiDoc = yamljs.load('./openapi.yaml');
 

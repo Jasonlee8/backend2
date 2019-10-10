@@ -1,2 +1,8 @@
-/node_modules
+node_modules/
+.gitignore
+.elasticbeanstalk/
 .env
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
