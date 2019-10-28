@@ -6,6 +6,7 @@ const Menu = require('../models/Menu');
 const router = Router();
 
 router.get('/menu', async (req, res, next) => {
+    console.log(req)
     const dbRes = await Menu.find();
     res.send(dbRes);  
 });
